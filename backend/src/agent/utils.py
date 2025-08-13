@@ -43,9 +43,9 @@ def insert_citation_markers(text, citations_list):
     Args:
         text (str): The original text string.
         citations_list (list): A list of dictionaries, where each dictionary
-                               contains 'start_index', 'end_index', and
-                               'segment_string' (the marker to insert).
-                               Indices are assumed to be for the original text.
+                                contains 'start_index', 'end_index', and
+                                'segment_string' (the marker to insert).
+                                Indices are assumed to be for the original text.
 
     Returns:
         str: The text with citation markers inserted.
@@ -86,24 +86,24 @@ def get_citations(response, resolved_urls_map):
 
     Args:
         response: The response object from the Gemini model, expected to have
-                  a structure including `candidates[0].grounding_metadata`.
-                  It also relies on a `resolved_map` being available in its
-                  scope to map chunk URIs to resolved URLs.
+                    a structure including `candidates[0].grounding_metadata`.
+                    It also relies on a `resolved_map` being available in its
+                    scope to map chunk URIs to resolved URLs.
 
     Returns:
         list: A list of dictionaries, where each dictionary represents a citation
-              and has the following keys:
-              - "start_index" (int): The starting character index of the cited
-                                     segment in the original text. Defaults to 0
-                                     if not specified.
-              - "end_index" (int): The character index immediately after the
-                                   end of the cited segment (exclusive).
-              - "segments" (list[str]): A list of individual markdown-formatted
+                and has the following keys:
+                - "start_index" (int): The starting character index of the cited
+                                    segment in the original text. Defaults to 0
+                                    if not specified.
+                - "end_index" (int): The character index immediately after the
+                                    end of the cited segment (exclusive).
+                - "segments" (list[str]): A list of individual markdown-formatted
                                         links for each grounding chunk.
-              - "segment_string" (str): A concatenated string of all markdown-
+                - "segment_string" (str): A concatenated string of all markdown-
                                         formatted links for the citation.
-              Returns an empty list if no valid candidates or grounding supports
-              are found, or if essential data is missing.
+                Returns an empty list if no valid candidates or grounding supports
+                are found, or if essential data is missing.
     """
     citations = []
 
